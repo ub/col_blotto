@@ -1,34 +1,28 @@
-= form_for [@tournament, @entry], :html => { :class => 'form-horizontal form-model' } do |f|
-  .form-group
-    = f.label :nick, :class => 'control-label col-md-2'
-    .col-md-10
-      = f.text_field :nick, :class => 'text-field form-control'
-  .form-group
-    = f.label :r1, :class => 'control-label col-md-2'
-    .col-md-10
-      = f.number_field :r1, :class => 'text-field form-control'
-  .form-group
-    = f.label :r2, :class => 'control-label col-md-2'
-    .col-md-10
-      = f.number_field :r2, :class => 'text-field form-control'
-  .form-group
-    = f.label :r3, :class => 'control-label col-md-2'
-    .col-md-10
-      = f.number_field :r3, :class => 'text-field form-control'
-  .form-group
-    = f.label :r4, :class => 'control-label col-md-2'
-    .col-md-10
-      = f.number_field :r4, :class => 'text-field form-control'
-  .form-group
-    = f.label :r5, :class => 'control-label col-md-2'
-    .col-md-10
-      = f.number_field :r5, :class => 'text-field form-control'
-  .form-group
-    = f.label :r6, :class => 'control-label col-md-2'
-    .col-md-10
-      = f.number_field :r6, :class => 'text-field form-control'
-  .form-group
-    .col-md-offset-2.col-md-10
-      = f.submit nil, :class => 'btn btn-primary'
-      = link_to t('.cancel', :default => t("helpers.links.cancel")), |
-        tournament_entries_path(@tournament), :class => 'btn btn-default'                    |
+= form_for [@tournament, @entry], :html => { :role => 'form' } do |f|
+  .form-group.col-md-2
+    = f.label :nick, :class => 'control-label'
+    = f.text_field :nick, :class => 'text-field form-control'
+  .form-group.col-md-1
+    = f.label :r1, :class => 'control-label'
+    = f.number_field :r1, :class => 'text-field form-control'
+  .form-group.col-md-1
+    = f.label :r2, :class => 'control-label'
+    = f.number_field :r2, :class => 'text-field form-control'
+  .form-group.col-md-1
+    = f.label :r3, :class => 'control-label'
+    = f.number_field :r3, :class => 'text-field form-control'
+  .form-group.col-md-1
+    = f.label :r4, :class => 'control-label'
+    = f.number_field :r4, :class => 'text-field form-control'
+  .form-group.col-md-1
+    = f.label :r5, :class => 'control-label'
+    = f.number_field :r5, :class => 'text-field form-control'
+  .form-group.col-md-1
+    = f.label :r6, :class => 'control-label'
+    = f.number_field :r6, :class => 'text-field form-control'
+  .form-group.col-md-2
+    = label_tag :sbmt_btn, raw('&nbsp;'),:class => 'control-label'
+    = f.submit nil, :class => 'btn btn-primary form-control', :id => 'sbmt_btn'
+
+    -#= link_to t('.cancel', :default => t("helpers.links.cancel")), |
+    -#  tournament_entries_path(@tournament), :class => 'btn btn-default'                    |

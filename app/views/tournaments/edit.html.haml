@@ -27,6 +27,7 @@
         %td= entry.r6
         %td= l entry.created_at, format: :long
 
+%p= @tournament.entries.size
 %h2= t '.enter', :default => [:'helpers.titles.enter', 'Enter %{model}'], :model => Entry
 
 = render :partial => 'entries/form'
