@@ -8,9 +8,9 @@
       %pre.prettyprint= @tournament.open
 .form-group
   = link_to t('.back', :default => t("helpers.links.back")), |
-    tournaments_path, :class => 'btn btn-default'            |
+    tournaments_path, :class => 'btn btn-default'
   = link_to t('.edit', :default => t("helpers.links.edit")),       |
-    edit_tournament_path(@tournament), :class => 'btn btn-default' |
+    edit_tournament_path(@tournament), :class => 'btn btn-default'
   = link_to t('.destroy', :default => t("helpers.links.destroy")),                                               |
     tournament_path(@tournament),                                                                                |
     :method => 'delete',                                                                                         |

@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  tournaments:
+    index:
+      new: 'New Tournament'
