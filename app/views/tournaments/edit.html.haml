@@ -5,7 +5,6 @@
 %table.table.table-striped
   %thead
     %tr
-      %th ID
       %th= model_class.human_attribute_name(:nick)
       %th= model_class.human_attribute_name(:r1)
       %th= model_class.human_attribute_name(:r2)
@@ -17,17 +16,11 @@
   %tbody
     - @tournament.entries.each do |entry|
       %tr
-        %td= entry.id
         %td= entry.nick
-        %td= entry.r1
-        %td= entry.r2
-        %td= entry.r3
-        %td= entry.r4
-        %td= entry.r5
-        %td= entry.r6
+        - 6.times do
+          %td  **
         %td= l entry.created_at, format: :long
 
-%p= @tournament.entries.size
-%h2= t '.enter', :default => [:'helpers.titles.enter', 'Enter %{model}'], :model => Entry
+%h2= t '.enter', :default => [:'helpers.titles.enter', 'New %{model}'], :model => Entry
 
 = render :partial => 'entries/form'

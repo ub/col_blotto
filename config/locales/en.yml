@@ -25,3 +25,5 @@ en:
     index:
       new: 'New Tournament'
       create: 'Create new'
+    edit:
+      title: 'Tournament in progress'
