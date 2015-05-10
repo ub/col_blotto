@@ -27,11 +27,11 @@
         %td= entry.r6
         %td= l entry.created_at, format: :long
         %td
-          = link_to entry_path(entry), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do
+          = link_to tournament_entry_path(@tournament, entry), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do
             = glyph 'info-sign'
             = glyph 'pencil'
-          = link_to entry_path(entry), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do
+          = link_to tournament_entry_path(@tournament, entry), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do
             = glyph 'remove'
 = link_to t('.new', :default => t("helpers.links.new")), |
-  new_entry_path,                                        |
+  new_tournament_entry_path(@tournament),                             |
   :class => 'btn btn-primary'                            |

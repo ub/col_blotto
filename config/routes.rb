@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   get 'home/index'
 
-  resources :tournaments
+  resources :tournaments do
+    resources :entries
+  end
 
-  resources :entries
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

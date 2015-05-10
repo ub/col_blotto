@@ -1,10 +1,12 @@
 class EntriesController < ApplicationController
+  before_action :set_tournament
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all
+    @entries = @tournament.entries
+    puts @entries.size
   end
 
   # GET /entries/1
@@ -62,13 +64,19 @@ class EntriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_entry
-      @entry = Entry.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def entry_params
-      params.require(:entry).permit(:nick, :r1, :r2, :r3, :r4, :r5, :r6, :tournament_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tournament
+    @tournament ||= Tournament.find(params[:tournament_id])
+  end
+
+  def set_entry
+    @tournament || set_tournament
+    @entry = @tournament.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def entry_params
+    params.require(:entry).permit(:nick, :r1, :r2, :r3, :r4, :r5, :r6, :tournament_id)
+  end
 end
