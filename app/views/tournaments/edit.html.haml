@@ -24,3 +24,5 @@
 %h2= t '.enter', :default => [:'helpers.titles.enter', 'New %{model}'], :model => Entry
 
 = render :partial => 'entries/form'
+= form_for @tournament, :html => { :class => 'form-horizontal form-model' } do |f|
+  = f.submit t('.finish', :default => [:'helpers.titles.finish', 'Finish %{model}'], :model => Tournament), :class => 'btn btn-primary'
