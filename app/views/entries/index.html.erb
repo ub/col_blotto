@@ -1,23 +1,26 @@
-<h1>Listing entries</h1>
-
-<table>
+<%- model_class = Entry -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Entry %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Nick</th>
-      <th>R1</th>
-      <th>R2</th>
-      <th>R3</th>
-      <th>R4</th>
-      <th>R5</th>
-      <th>R6</th>
-      <th>Tournament</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:nick) %></th>
+      <th><%= model_class.human_attribute_name(:r1) %></th>
+      <th><%= model_class.human_attribute_name(:r2) %></th>
+      <th><%= model_class.human_attribute_name(:r3) %></th>
+      <th><%= model_class.human_attribute_name(:r4) %></th>
+      <th><%= model_class.human_attribute_name(:r5) %></th>
+      <th><%= model_class.human_attribute_name(:r6) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @entries.each do |entry| %>
       <tr>
+        <td><%= entry.id %></td>
         <td><%= entry.nick %></td>
         <td><%= entry.r1 %></td>
         <td><%= entry.r2 %></td>
@@ -25,15 +28,21 @@
         <td><%= entry.r4 %></td>
         <td><%= entry.r5 %></td>
         <td><%= entry.r6 %></td>
-        <td><%= entry.tournament %></td>
-        <td><%= link_to 'Show', entry %></td>
-        <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
-        <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l entry.created_at, format: :long %></td>
+        <td>
+          <%= link_to entry_path(entry), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to entry_path(entry), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Entry', new_entry_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_entry_path,
+            :class => 'btn btn-primary' %>
