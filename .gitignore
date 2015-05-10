@@ -18,3 +18,18 @@
 #->Prelang (env_variables:dotenv)
 # Ignore .env file so sensitive environment variables are not checked into Git.
 .env
+
+
+# Created by https://www.gitignore.io
+
+### RubyMine ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+
+*.iml
+
+## Directory-based project format:
+.idea/
+
+## File-based project format:
+*.ipr
+*.iws

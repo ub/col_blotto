@@ -1,0 +1,36 @@
+- model_class = Entry
+.page-header
+  %h1= t '.title', :default => Entry
+.fieldset
+  %dl
+    %dt.label.label-default= model_class.human_attribute_name(:nick)
+    %dd
+      %pre.prettyprint= @entry.nick
+    %dt.label.label-default= model_class.human_attribute_name(:r1)
+    %dd
+      %pre.prettyprint= @entry.r1
+    %dt.label.label-default= model_class.human_attribute_name(:r2)
+    %dd
+      %pre.prettyprint= @entry.r2
+    %dt.label.label-default= model_class.human_attribute_name(:r3)
+    %dd
+      %pre.prettyprint= @entry.r3
+    %dt.label.label-default= model_class.human_attribute_name(:r4)
+    %dd
+      %pre.prettyprint= @entry.r4
+    %dt.label.label-default= model_class.human_attribute_name(:r5)
+    %dd
+      %pre.prettyprint= @entry.r5
+    %dt.label.label-default= model_class.human_attribute_name(:r6)
+    %dd
+      %pre.prettyprint= @entry.r6
+.form-group
+  = link_to t('.back', :default => t("helpers.links.back")), |
+    entries_path, :class => 'btn btn-default'                |
+  = link_to t('.edit', :default => t("helpers.links.edit")), |
+    edit_entry_path(@entry), :class => 'btn btn-default'     |
+  = link_to t('.destroy', :default => t("helpers.links.destroy")),                                               |
+    entry_path(@entry),                                                                                          |
+    :method => 'delete',                                                                                         |
+    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, |
+    :class => 'btn btn-danger'                                                                                   |

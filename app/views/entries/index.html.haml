@@ -1,0 +1,37 @@
+- model_class = Entry
+.page-header
+  %h1= t '.title', :default => Entry
+%table.table.table-striped
+  %thead
+    %tr
+      %th ID
+      %th= model_class.human_attribute_name(:nick)
+      %th= model_class.human_attribute_name(:r1)
+      %th= model_class.human_attribute_name(:r2)
+      %th= model_class.human_attribute_name(:r3)
+      %th= model_class.human_attribute_name(:r4)
+      %th= model_class.human_attribute_name(:r5)
+      %th= model_class.human_attribute_name(:r6)
+      %th= model_class.human_attribute_name(:created_at)
+      %th= t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @entries.each do |entry|
+      %tr
+        %td= entry.id
+        %td= entry.nick
+        %td= entry.r1
+        %td= entry.r2
+        %td= entry.r3
+        %td= entry.r4
+        %td= entry.r5
+        %td= entry.r6
+        %td= l entry.created_at, format: :long
+        %td
+          = link_to entry_path(entry), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do
+            = glyph 'info-sign'
+            = glyph 'pencil'
+          = link_to entry_path(entry), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do
+            = glyph 'remove'
+= link_to t('.new', :default => t("helpers.links.new")), |
+  new_entry_path,                                        |
+  :class => 'btn btn-primary'                            |
