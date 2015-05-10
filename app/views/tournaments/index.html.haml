@@ -20,6 +20,6 @@
             = glyph 'pencil'
           = link_to tournament_path(tournament), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do
             = glyph 'remove'
-= link_to t('.new', :default => t("helpers.links.new")), |
-  new_tournament_path,                                   |
-  :class => 'btn btn-primary'                            |
+= form_for @tournament, :html => { :class => 'form-horizontal form-model' } do |f|
+  = f.hidden_field :open, value: 1 #TODO change create logic instead of
+  = f.submit nil, :class => 'btn btn-primary'

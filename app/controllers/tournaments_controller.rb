@@ -5,6 +5,8 @@ class TournamentsController < ApplicationController
   # GET /tournaments.json
   def index
     @tournaments = Tournament.all
+    @tournament = Tournament.new(:open => true)
+
   end
 
   # GET /tournaments/1
