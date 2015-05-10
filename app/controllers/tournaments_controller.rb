@@ -21,6 +21,7 @@ class TournamentsController < ApplicationController
 
   # GET /tournaments/1/edit
   def edit
+    @entry = Entry.new(:tournament => @tournament)
   end
 
   # POST /tournaments

@@ -1,4 +1,4 @@
-= form_for @entry, :html => { :class => 'form-horizontal form-model' } do |f|
+= form_for [@tournament, @entry], :html => { :class => 'form-horizontal form-model' } do |f|
   .form-group
     = f.label :nick, :class => 'control-label col-md-2'
     .col-md-10
@@ -31,4 +31,4 @@
     .col-md-offset-2.col-md-10
       = f.submit nil, :class => 'btn btn-primary'
       = link_to t('.cancel', :default => t("helpers.links.cancel")), |
-        entries_path, :class => 'btn btn-default'                    |
+        tournament_entries_path(@tournament), :class => 'btn btn-default'                    |

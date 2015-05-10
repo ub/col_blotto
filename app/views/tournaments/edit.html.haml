@@ -1,4 +1,32 @@
 - model_class = Tournament
 .page-header
   %h1= t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Tournament
-= render :partial => 'form'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th ID
+      %th= model_class.human_attribute_name(:nick)
+      %th= model_class.human_attribute_name(:r1)
+      %th= model_class.human_attribute_name(:r2)
+      %th= model_class.human_attribute_name(:r3)
+      %th= model_class.human_attribute_name(:r4)
+      %th= model_class.human_attribute_name(:r5)
+      %th= model_class.human_attribute_name(:r6)
+      %th= model_class.human_attribute_name(:created_at)
+  %tbody
+    - @tournament.entries.each do |entry|
+      %tr
+        %td= entry.id
+        %td= entry.nick
+        %td= entry.r1
+        %td= entry.r2
+        %td= entry.r3
+        %td= entry.r4
+        %td= entry.r5
+        %td= entry.r6
+        %td= l entry.created_at, format: :long
+
+%h2= t '.enter', :default => [:'helpers.titles.enter', 'Enter %{model}'], :model => Entry
+
+= render :partial => 'entries/form'
