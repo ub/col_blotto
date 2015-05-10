@@ -1,0 +1,39 @@
+<h1>Listing entries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nick</th>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>R6</th>
+      <th>Tournament</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @entries.each do |entry| %>
+      <tr>
+        <td><%= entry.nick %></td>
+        <td><%= entry.r1 %></td>
+        <td><%= entry.r2 %></td>
+        <td><%= entry.r3 %></td>
+        <td><%= entry.r4 %></td>
+        <td><%= entry.r5 %></td>
+        <td><%= entry.r6 %></td>
+        <td><%= entry.tournament %></td>
+        <td><%= link_to 'Show', entry %></td>
+        <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+        <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Entry', new_entry_path %>
