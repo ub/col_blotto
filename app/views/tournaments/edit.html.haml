@@ -5,6 +5,7 @@
 %table.table.table-striped
   %thead
     %tr
+      %th.col-xs-1= t '.number', :default => ['#']
       %th= model_class.human_attribute_name(:nick)
       %th= model_class.human_attribute_name(:r1)
       %th= model_class.human_attribute_name(:r2)
@@ -14,8 +15,9 @@
       %th= model_class.human_attribute_name(:r6)
       %th= model_class.human_attribute_name(:created_at)
   %tbody
-    - @tournament.entries.each do |entry|
+    - @tournament.entries.each_with_index do |entry, i|
       %tr
+        %td= "%2d." % (i+1)
         %td= entry.nick
         - 6.times do
           %td  **
@@ -25,4 +27,4 @@
 
 = render :partial => 'entries/form'
 = form_for @tournament, :html => { :class => 'form-horizontal form-model' } do |f|
-  = f.submit t('.finish', :default => [:'helpers.titles.finish', 'Finish %{model}'], :model => Tournament), :class => 'btn btn-primary'
+  = f.submit t('.finish'), :class => 'btn btn-danger btn-lg'

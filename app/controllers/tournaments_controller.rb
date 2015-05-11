@@ -44,7 +44,7 @@ class TournamentsController < ApplicationController
   # PATCH/PUT /tournaments/1.json
   def update
     respond_to do |format|
-      if @tournament.update(tournament_params)
+      if @tournament.update(:open => false)
         format.html { redirect_to @tournament, notice: 'Tournament was successfully updated.' }
         format.json { render :show, status: :ok, location: @tournament }
       else
@@ -70,8 +70,4 @@ class TournamentsController < ApplicationController
       @tournament = Tournament.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def tournament_params
-      params.require(:tournament).permit(:open)
-    end
 end

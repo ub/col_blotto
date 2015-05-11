@@ -27,3 +27,5 @@ en:
       create: 'Create new'
     edit:
       title: 'Tournament in progress'
+      finish: 'Finish Tournament'
+      number: 'No.'
