@@ -21,6 +21,10 @@ class Tournament::Result
     @score_table
   end
 
+  def decorated_entries
+    @entries
+  end
+
   private
 
   def battle_score(current, other)

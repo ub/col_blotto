@@ -1,0 +1,13 @@
+%table.table.table-striped.table-condensed#score-table
+  %thead
+    %tr
+      %th= raw '&nbsp;'
+      - @tournament_result.decorated_entries.each do | e |
+        %th= e.number
+  %tbody
+    - @tournament_result.score_table.each_with_index do | row, index |
+      %tr
+        %th= @tournament_result.decorated_entries[index].number
+        - row.each do | cell |
+          %td= cell.is_a?( Fixnum) ?  raw('&mdash;') : cell
+
