@@ -1,13 +1,19 @@
+- model_class = Tournament
 %table.table.table-striped.table-condensed#score-table
   %thead
     %tr
-      %th= raw '&nbsp;'
+      %th
+      %th= model_class.human_attribute_name(:nick)
+      %th &Sigma;
       - @tournament_result.decorated_entries.each do | e |
         %th= e.number
   %tbody
     - @tournament_result.score_table.each_with_index do | row, index |
+      - decorated_entry = @tournament_result.decorated_entries[index]
       %tr
-        %th= @tournament_result.decorated_entries[index].number
+        %th= decorated_entry.number
+        %th= decorated_entry.nick
+        %th= decorated_entry.score
         - row.each do | cell |
           %td= cell.is_a?( Fixnum) ?  raw('&mdash;') : cell
 
